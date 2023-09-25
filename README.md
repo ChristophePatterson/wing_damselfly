@@ -78,4 +78,4 @@ If you have any questions about using the program, please feel free to communica
 ## Examples
 
 ![](./examples/recognizer_output.png)
-![](./examples/../samples/wing_spot_report_7366.png)
+![](./examples/wing_spot_report_7366.png)

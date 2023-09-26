@@ -29,7 +29,7 @@ pip -r requirements.txt
 
 Subsequently, you need to install detectron2 separately, please follow its [official tutorial](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md) for installation.
 
-After completing the installation of detectron2, you need to execute the following commands to download two pre-trained models, or manually download the model to `models on the [hugging face page](https://huggingface.co/barberry-nut/wing_damselfly) ` folder.
+After completing the installation of detectron2, you need to execute the following commands to download two pre-trained models, or manually download the pre-trained models to `models` folder on the [hugging face page](https://huggingface.co/barberry-nut/wing_damselfly).
 
 ```shell
 wget -P ./models https://huggingface.co/barberry-nut/wing_damselfly/resolve/main/perching_model_final.pth

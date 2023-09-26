@@ -17,7 +17,7 @@ In terms of configuring the python environment, it is recommended to use conda t
 
 CUDA Toolkit also needs to be installed correctly. For the installation tutorial, see this [link](https://developer.nvidia.com/cuda-downloads). Before installation, please ensure that your host or server is equipped with a graphics card that supports CUDA.
 
-After completing the prerequisites, to run the application normally, execute the following commands in the command line:
+After completing the prerequisites, execute the following commands in the command line to deploy the Python environment:
 
 ```shell
 git clone https://github.com/barberry-nut/wing_damselfly.git
@@ -29,7 +29,14 @@ pip -r requirements.txt
 
 Subsequently, you need to install detectron2 separately, please follow its [official tutorial](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md) for installation.
 
-After completing the installation of detectron2, you can execute `python main.py` in the root directory of the application. When you see the command line starting to read the sample images and output parameters, it means that the program has been successfully run.
+After completing the installation of detectron2, you need to execute the following commands to download two pre-trained models, or manually download the model to `models on the [hugging face page](https://huggingface.co/barberry-nut/wing_damselfly) ` folder.
+
+```shell
+wget -P ./models https://huggingface.co/barberry-nut/wing_damselfly/resolve/main/perching_model_final.pth
+wget -P ./models https://huggingface.co/barberry-nut/wing_damselfly/resolve/main/standard_model_final.pth
+```
+
+After completing the model download, execute `python main.py` in the root directory of the application. When you see the command line starting to read the sample images and output parameters, it means that the program has been successfully run.
 
 ## Usage
 

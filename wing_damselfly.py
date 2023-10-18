@@ -59,10 +59,10 @@ def process_photos():
             hw_black_img, hw_red_img, hw_tip_img, hw_has_red, hw_has_tip, hw_csv_data = extractor.spot_exe(segmented_hw_image, mode='hw')
             fw_black_img, fw_red_img, fw_tip_img, fw_has_red, fw_has_tip, fw_csv_data = extractor.spot_exe(segmented_fw_image, mode='fw')
 
-            save_image(hw_black_img, image_name+'_hw_black', photos_extractor_path)
+            save_image(hw_black_img, image_name+'_hw_basal', photos_extractor_path)
             if(hw_has_red) : save_image(hw_red_img, image_name+'_hw_red', photos_extractor_path)
             if(hw_has_tip) : save_image(hw_tip_img, image_name+'_hw_tip', photos_extractor_path)
-            save_image(fw_black_img, image_name+'_fw_black', photos_extractor_path)
+            save_image(fw_black_img, image_name+'_fw_basal', photos_extractor_path)
             if(fw_has_red) : save_image(fw_red_img, image_name+'_fw_red', photos_extractor_path)
             if(fw_has_tip) : save_image(fw_tip_img, image_name+'_fw_tip', photos_extractor_path)
 

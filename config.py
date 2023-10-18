@@ -14,13 +14,19 @@ model_path = './models/standard_model_final.pth'
 model_config = './models/model_config.yaml'
 
 # base photo folder, where all photo-related folders are located
-base_photo_folder = './photos_rembg/'
+base_photo_folder = './photos_test/'
+
+# you need to create report_file_path folder and csv file 
+# and create photos_folder folder by yourself 
+# if you create a blank base_photo_folder folder
 
 # the path of report csv file 
 report_file_path = f'{base_photo_folder}report/standard_wing.csv'
 
-# folder with photos to be processed, put your photos in this foler
-photos_folder = f'{base_photo_folder}standard_photos'
+# folder with photos to be processed, put your photos in this folder
+photos_folder = f'{base_photo_folder}my_photos'
+
+# folder below can be auto created by program 
 
 # folder with photos of identified and labeled wings
 photos_detectron2_recognizer_path = f'{base_photo_folder}detectron2_recognizer'

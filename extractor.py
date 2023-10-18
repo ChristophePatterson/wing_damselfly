@@ -71,7 +71,7 @@ def spot_exe(image, mode='pair'):
 
 
     print(mode + '======')
-    print("Percentage of black area: ", black_area_ratio)
+    print("Percentage of basal area: ", black_area_ratio)
     if(wing_has_red) : print("Percentage of red area: ", red_area_ratio)
     if(wing_has_tip) : print("Percentage of tip area：", tip_area_ratio)
 

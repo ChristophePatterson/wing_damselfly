@@ -1,13 +1,13 @@
 # A command line program to analyze damselfly wing spots
 
-This application is part of my graduation thesis, developed using Python, [detectron2](https://github.com/facebookresearch/detectron2) deep learning framework and OpenCV to identify and crop damselfly wings, and to Identify and calculate the area of plaques on the target, and finally export the required data table. At the same time, this application is preset with two types of damselfly wing recognition models, based on standard photos and perching in Drury, JP's paper [ecog-04469](https://www.ecography.org/appendix/ecog-04469) photos from training.
+This application is part of my graduation thesis, developed using Python, [detectron2](https://github.com/facebookresearch/detectron2) deep learning framework and OpenCV to identify and crop damselfly wings, and to Identify and calculate the area of plaques on the target, and finally export the required data table. At the same time, this application is preset with two types of damselfly wing recognition models, based on standard and perching photos in Drury, JP's paper [ecog-04469](https://www.ecography.org/appendix/ecog-04469) photos from training.
 
-The application can be used through the command line and does not have a corresponding graphical interface, but it can be customized by modifying `config.py`. For details, please see the [Usage](##Usage) chapter. If you want to know how the application processes images, please see the [Process Detail](##Process Detail) chapter.
+The application can be used through the command line and does not have a corresponding graphical interface, but it can be customized by modifying `config.py`. For details, please see the [Usage](##Usage) chapter.
 
 ## Installation
 
 This application has been verified to function under the following conditions:
-- OS: Debian 10.10 x64
+- OS: Linux Debian 10.10 x64
 - Python: Python 3.9
 - GPU: P4000, and other CUDA enabled GPUs
 
@@ -24,7 +24,7 @@ git clone https://github.com/barberry-nut/wing_damselfly.git
 cd wing_damselfly
 conda create -n wing_damselfly
 conda activate wing_damselfly
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Subsequently, you need to install detectron2 separately, please follow its [official tutorial](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md) for installation.

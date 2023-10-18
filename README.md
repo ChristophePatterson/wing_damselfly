@@ -27,9 +27,16 @@ conda activate wing_damselfly
 pip install -r requirements.txt
 ```
 
-Subsequently, you need to install detectron2 separately, please follow its [official tutorial](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md) for installation.
+Similarly, you can use `virtualenv` instead of `conda` to manage the python environment, like:
 
-After completing the installation of detectron2, you need to execute the following commands to download two pre-trained models, or manually download the pre-trained models to `models` folder on the [hugging face page](https://huggingface.co/barberry-nut/wing_damselfly).
+```shell
+virtualenv wing_damselfly
+source wing_damselfly/bin/activate
+```
+
+Subsequently, you need to install pytroch first and install detectron2 then, please follow [pytorch official page](https://pytorch.org/) and [detectron2 official tutorial](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md) for installation.
+
+After completing the installation of pytorch and detectron2, you need to execute the following commands to download two pre-trained models, or manually download the pre-trained models to `models` folder on the [hugging face page](https://huggingface.co/barberry-nut/wing_damselfly).
 
 ```shell
 wget -P ./models https://huggingface.co/barberry-nut/wing_damselfly/resolve/main/perching_model_final.pth

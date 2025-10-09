@@ -60,6 +60,9 @@ def calculate_centroid(mask):
     centroid_y = int(M["m01"] / M["m00"])
     return centroid_x, centroid_y
 
+    
+
+
 def cal_hw_fw_index(prediction):
     masks = prediction["instances"].pred_masks.cpu().numpy()
 

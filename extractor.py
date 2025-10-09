@@ -7,8 +7,10 @@ def spot_exe(image, mode='pair'):
     image_hsv = cv2.cvtColor(image[:, :, :3], cv2.COLOR_BGR2HSV)
     image_gray = gen_gray_image(image)
     image_black_opt = adjust_brightness_contrast(image)
+    # save_image(image_black_opt, 'test_black_opt', test_image_output)
 
     # 定义颜色阈值范围 BGR
+    # Define color threshold range BGR
     lower_red = np.array([0, 90, 90], dtype=np.uint8)
     upper_red = np.array([5, 255, 255], dtype=np.uint8)
 
@@ -18,10 +20,12 @@ def spot_exe(image, mode='pair'):
     lower_tip_color, upper_tip_color = gen_tip_color(mode)
 
     # 定义形态学内核（可以根据实际情况调整大小）
+    # Define the morphological kernel (the size can be adjusted according to the actual situation)
     black_kernel = np.ones((1, 1), np.uint8)
     red_kernel = np.ones((2, 2), np.uint8)
 
     # 创建掩膜
+    # Create mask
     red_mask = cv2.inRange(image_hsv, lower_red, upper_red)
     if(is_perching):
         black_mask = cv2.inRange(image_gray, np.array([0], dtype=np.uint8), np.array([1], dtype=np.uint8))
@@ -34,7 +38,9 @@ def spot_exe(image, mode='pair'):
 
     # 使用内核扩大范围
     red_mask = cv2.dilate(red_mask, red_kernel, iterations=2)
+    save_image(red_mask, 'test_red_mask', test_image_output)
     black_mask = cv2.dilate(black_mask, black_kernel, iterations=7)
+    save_image(black_mask, 'test_black_mask', test_image_output)
     # tip_mask = cv2.dilate(tip_mask, kernel, iterations=1)
     # tip_mask_sub = cv2.dilate(tip_mask_sub, kernel, iterations=1)
 
@@ -150,6 +156,8 @@ def has_red_area(image, red_mask, totoal_area):
     else:
         return False
 
+def save_image(image, image_name, output_path):
+    cv2.imwrite(f"{output_path}/{image_name}.png", image)
 
 def adjust_brightness_contrast(image, brightness= -200, contrast = 1.7):
     if(is_perching):

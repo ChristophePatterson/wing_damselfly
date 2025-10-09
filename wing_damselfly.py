@@ -12,12 +12,13 @@ from detectron2.data import MetadataCatalog
 def process_photos():
     # load pre-trained model
     predictor, cfg = recognizer.load_detectron2_model(model_path)
-    files = os.listdir(photos_folder)
+    files = sorted(os.listdir(photos_folder), reverse=True)
     check_path()
 
-    for file in files:
 
+    for file in files:
         image_name = file.split('.')[0]
+        print("Starting analsysis on ", image_name, " or ", file)
         image_path = os.path.join(photos_folder, file)
         image = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
         
@@ -25,9 +26,20 @@ def process_photos():
         prediction, output_image = recognizer.make_prediction(predictor, cfg, image)
 
         print(image_name, '==============')
+        # Calculate the number of objects recognized
 
         if(not exist_objective(prediction)):
             csv_data = [image_name, 'No objects recognized']
+            exporter.add_report_data(csv_data)
+            continue
+        
+        # Calculate the number of objects found, if more than 1 proceed otherwise skip file
+        masks = prediction["instances"].pred_masks.cpu().numpy()
+        print(f"The predictor function found {masks.shape[0]} objects")
+        
+        if(masks.shape[0] < 2 and is_separate):
+            print(f"Predictor found less than one object, skipping file")
+            csv_data = [image_name, 'Less than 2 objects recognized']
             exporter.add_report_data(csv_data)
             continue
 
@@ -92,6 +104,7 @@ def check_path():
     check_create_directory(photos_detectron2_segmenter_path)
     check_create_directory(photos_rembg_segmenter_path)
     check_create_directory(photos_extractor_path)
+    check_create_directory(test_image_output)
 
 def check_create_directory(directory_path):  
     if not os.path.exists(directory_path):  

@@ -1,8 +1,12 @@
 # A command line program to analyze damselfly wing spots
 
-This application is part of my graduation thesis, developed using Python, [detectron2](https://github.com/facebookresearch/detectron2) deep learning framework and OpenCV to identify and crop damselfly wings, and to Identify and calculate the area of plaques on the target, and finally export the required data table. At the same time, this application is preset with two types of damselfly wing recognition models, based on standard and perching photos in Drury, JP's paper [ecog-04469](https://www.ecography.org/appendix/ecog-04469) photos from training.
+An application developed using Python, [detectron2](https://github.com/facebookresearch/detectron2) deep learning framework and OpenCV to identify and crop damselfly wings, and to Identify and calculate the area of plaques on the target, and finally export the required data table. At the same time, this application is preset with two types of damselfly wing recognition models, based on standard and perching photos in Drury, JP's paper [ecog-04469](https://www.ecography.org/appendix/ecog-04469) photos from training.
 
 The application can be used through the command line and does not have a corresponding graphical interface, but it can be customized by modifying `config.py`. For details, please see the [Usage](##Usage) chapter.
+
+The application was Delveloped by as Jieyu Lin for thesis at Durham University
+
+Further modifications to the pipeline to increase throughput and test a range of theshold values were added by Christophe Patterson.
 
 ## Installation
 
